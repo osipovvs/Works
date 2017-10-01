@@ -6,8 +6,8 @@ while (plates > 0) and (w_liquid > 0):
     plates -= 1
 
 if w_liquid > 0:
-    print('All the plates have been washed', w_liquid, 'liters left')
+    print('Все тарелки вымыты. Осталось ', w_liquid, 'ед. моющего средства')
 elif plates > 0:
-    print('Liquid is over,', plates, 'plates are left')
+    print('Моющее средство закончилось. Осталось ', plates, 'тарелок')
 else:
-    print('All the plates are washed, and there is no more liquid')
+    print('Все тарелки вымыты, моющее средство закончилось')
