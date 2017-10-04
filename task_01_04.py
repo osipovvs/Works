@@ -5,15 +5,15 @@ y2 = int(input())
 x3 = int(input())
 y3 = int(input())
 
-len_12 = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
-len_13 = ((x1 - x3) ** 2 + (y1 - y3) ** 2) ** 0.5
-len_23 = ((x3 - x2) ** 2 + (y3 - y2) ** 2) ** 0.5
+sqlen_12 = ((x1 - x2) ** 2 + (y1 - y2) ** 2)
+sqlen_13 = ((x1 - x3) ** 2 + (y1 - y3) ** 2)
+sqlen_23 = ((x3 - x2) ** 2 + (y3 - y2) ** 2)
 
-s1 = len_12 ** 2
-s2 = len_13 ** 2
-s3 = len_23 ** 2
+# s1 = len_12 ** 2
+# s2 = len_13 ** 2
+# s3 = len_23 ** 2
 
-if (s1 + s2 == s3) or (s1 + s3 == s2) or (s2 + s3 == s1):
+if (sqlen_12 + sqlen_23 == sqlen_13) or (sqlen_12 + sqlen_13 == sqlen_23) or (sqlen_23 + sqlen_13 == sqlen_12):
     print('Прямоугольный')
 else:
     print('Не прямоугольный')

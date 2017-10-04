@@ -5,4 +5,4 @@ def average(lst):
         sum += i
     avg = (sum / len(lst))
 
-    return(sum, round(avg, 3))
+    return(round(avg, 3))

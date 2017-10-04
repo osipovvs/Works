@@ -10,9 +10,9 @@ if (a >= b):
     else:
         print(b, c, a, sep = ', ')
 else:
-    if (b >= c):
-        print(a, c, b, sep = ', ')
-    elif (c <= a):
+    if (c <= a):
         print(c, a, b, sep = ', ')
-    else:
+    elif (b <= c):
         print(a, b, c, sep = ', ')
+    else:
+        print(a, c, b, sep = ', ')

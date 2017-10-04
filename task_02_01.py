@@ -1,5 +1,6 @@
 def is_palindrome(s):
     res = False
+    sstr = str(s)
     s2 = s.replace(' ', '')
 
     bad_chars = {33: None, 
@@ -15,7 +16,9 @@ def is_palindrome(s):
     145: None,
     146: None,
     150: None,
-    151: None
+    151: None,
+    192: None,
+    222: None
 }
 
     s3 = s2.translate(bad_chars)
