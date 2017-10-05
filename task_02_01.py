@@ -1,7 +1,7 @@
 def is_palindrome(s):
     res = False
     sstr = str(s)
-    s2 = s.replace(' ', '')
+    s2 = sstr.replace(' ', '')
 
     bad_chars = {33: None, 
     34: None,
