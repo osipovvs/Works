@@ -8,9 +8,14 @@ def http_headers_to_json(inp, out):
     respond = heads[0].startswith("HTTP/")
 
     for i in range(len(heads)):
-        newheads.append(list(heads[i].split(': ')))
+        border = heads[i].find(': ')
+        if border != -1:
+            left_part = (heads[i])[:border]
+            right_part = (heads[i])[(border + 2):]
+            line_list = [left_part, right_part]
+            newheads.append(line_list)
 
-    common_headers = {newheads[i][0]: (newheads[i][1].replace('\n', '')).strip() for i in range(1, (len(newheads) - 1))}
+    common_headers = {newheads[i][0]: (newheads[i][1].replace('\n', '')) for i in range(len(newheads))}
 
     if respond:
         first_str = heads[0].split(' ')
@@ -36,7 +41,6 @@ def http_headers_to_json(inp, out):
         }
 
         output = dict(common_headers, **request_headers)
-
 
     with open (out, 'w') as outs:
         json.dump(output, outs, indent = 4) # indent > 0 is set to print the output line by line, not inline
