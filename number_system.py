@@ -13,20 +13,17 @@ def dec2bin(number):
             flag = False
 
     if flag:
-        lst = ['"']
+        lst = []
     
         while number > 1:
             lst.append(str(number % 2))
             number = number // 2
         lst.append(str(number % 2))
 
-        lst.append('"')
         flst = lst[::-1]
     
         return ''.join(flst)
-    #else:
-    #    return None
-
+   
 
 def dec2oct(number):
     flag = True
@@ -38,20 +35,18 @@ def dec2oct(number):
             flag = False
 
     if flag:
-        lst = ['"']
+        lst = []
     
         while number > 7:
             lst.append(str(number % 8))
             number = number // 8
         lst.append(str(number % 8))
 
-        lst.append('"')
+    
         flst = lst[::-1]
     
         return ''.join(flst)
-    #else:
-    #    return None
-
+    
 
 def dec2hex(number):
     flag = True
@@ -64,7 +59,7 @@ def dec2hex(number):
 
     if flag:
         lst = []
-        lst_fin = ['"']
+        lst_fin = []
     
         while number > 15:
             lst.append(str(number % 16))
@@ -95,10 +90,8 @@ def dec2hex(number):
         for i in flst:
             lst_fin.append(rev_hex_keys.get(i))
 
-        lst_fin.append('"')
         return ''.join(lst_fin)
-    #else:
-    #    return None
+
 
 def bin2dec(number):
     fstr = str(number)
