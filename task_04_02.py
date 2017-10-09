@@ -15,10 +15,10 @@ def http_headers_to_json(inp, out):
             line_list = [left_part, right_part]
             newheads.append(line_list)
 
-    common_headers = {newheads[i][0]: (newheads[i][1].replace('\n', '')) for i in range(len(newheads))}
+    common_headers = {newheads[i][0]: (newheads[i][1].replace('\n', '')) for i in range(len(newheads))} # generating a ditionary
+    first_str = heads[0].split(' ')
 
     if respond:
-        first_str = heads[0].split(' ')
         st_message = list(first_str)[2:len(list(first_str))]  # handling multi-word statuses. 
         # List 'heads' is a list of strings (the headers from the input file). Status message is in the first string (heads[0]). It is
         # preceded by two elements (i.e. words): heads[0][0] and heads[0][1] and lasts till the end of the line. Thus, we start
@@ -30,10 +30,8 @@ def http_headers_to_json(inp, out):
             "status_message": (' '.join(st_message)).replace('\n', ''),
             "status_code": first_str[1]
         }
-        output = dict(common_headers, **responce_headers)
-    else:
-        first_str = heads[0].split(' ')
-
+        output = dict(common_headers, **responce_headers) # merging two dictionaries
+    else:        
         request_headers = {
             "method": first_str[0],
             "uri": first_str[1],
