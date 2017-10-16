@@ -65,10 +65,10 @@ def show_all(conn):
 
 def add_task(conn, name, message, deadline):
     """Adds a new task into the database"""
-    if not name:
-        except ValueError:
-            print("Please name the task.")
-        return
+    # if not name:
+    # except ValueError:
+    #     print("Please name the task.")
+    # return
 
     with conn:
         found = find_task_by_name(conn, name)

@@ -1,4 +1,4 @@
-import os.path as path
+import os.path as pth
 import sys
 
 from organiser import storage
@@ -53,7 +53,7 @@ def act_finish_task():
 
 def act_restart_task():
     """Restart a task"""
-     pk = input('\nEnter the id of the task to be marked as finished: ')
+    pk = input('\nEnter the id of the task to be marked as finished: ')
 
     with get_connection() as conn:
         storage.restart_task(conn, pk)
