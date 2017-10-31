@@ -5,11 +5,11 @@ class ValidatorException(Exception):
 
 
 class Validator(metaclass=ABCMeta):
-    def __init__(self, value):
-        self.value = value
+    # def __init__(self, value):
+    #     self.value = value
 
     @abstractmethod
-    def validate(self, value):
+    def validate(self):
         pass
 
     types = {}
@@ -26,18 +26,18 @@ class Validator(metaclass=ABCMeta):
 
 
     @classmethod
-    def get_instance(cls, name):  #Проблема с передаваемыми аргументами
+    def get_instance(cls, name):
         klass = cls.types.get(name)
         
         if klass is None:
             raise ValidatorException('Validator with name "{}" not found'.format(name))
 
-        return klass(value) #Откуда-то нужно получать value
+        return klass()
 
 
 class EMailValidator(Validator):
     def validate(self, value):
-        self.value
+        self.value = value
         if not '@' in value:
             return False
 
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     Validator.add_type('email', EMailValidator)
 
     validator = Validator.get_instance('email')
-    validator.validate('something')
+    print(validator.validate('somet[hing@mail.ru'))
 
     print(Validator.types)
 
